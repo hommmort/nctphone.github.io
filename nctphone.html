@@ -1,0 +1,383 @@
+HTML
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Купити smartphones та мобільні телефони в Україні NeoPhone</title>
+    <meta name="description" content="Широкий вибір сучасних смартфонів за вигідними цінами. Офіційна гарантія та швидка доставка.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes neonGlow {
+            0% { box-shadow: 0 0 5px rgba(135, 255, 0, 0.2), 0 8px 32px rgba(0, 0, 0, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(135, 255, 0, 0.4), 0 8px 32px rgba(0, 0, 0, 0.5); }
+            100% { box-shadow: 0 0 5px rgba(135, 255, 0, 0.2), 0 8px 32px rgba(0, 0, 0, 0.5); }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+        }
+
+        body {
+            background: linear-gradient(-45deg, #050a05, #0a140d, #020703, #070d08);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #f0f5f1;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8), 0 0 8px rgba(135, 255, 0, 0.3);
+            font-size: 1.15rem; 
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 0 30px 0;
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #87FF00; 
+            text-shadow: 0 0 10px rgba(135, 255, 0, 0.6), 0 0 20px rgba(135, 255, 0, 0.3);
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #a3b8a8;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .nav-link {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            padding: 10px 22px;
+            background-color: rgba(135, 255, 0, 0.03);
+            color: #c2d6c6;
+            text-decoration: none;
+            border-radius: 4px;
+            border: 1px solid rgba(135, 255, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: #87FF00;
+            color: #050a05;
+            font-weight: bold;
+            text-shadow: none;
+            box-shadow: 0 0 15px rgba(135, 255, 0, 0.5);
+            border-color: #87FF00;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        section {
+            background-color: rgba(10, 20, 12, 0.4); 
+            backdrop-filter: blur(16px); 
+            -webkit-backdrop-filter: blur(16px);
+            padding: 35px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(135, 255, 0, 0.15);
+            animation: neonGlow 8s ease-in-out infinite;
+        }
+
+        section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.7rem;
+            color: #87FF00;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(135, 255, 0, 0.2);
+            padding-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* КОНТЕЙНЕР ДЛЯ СЛАЙДШОУ ВИДЕО */
+        .video-slider {
+            position: relative;
+            max-width: 100%;
+            width: 560px;
+            height: 315px;
+            margin: 25px auto;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(135, 255, 0, 0.3);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            background: #000;
+        }
+
+        .video-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+            z-index: 1;
+        }
+
+        .video-slide.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 2;
+        }
+
+        .video-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .grid-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: rgba(135, 255, 0, 0.04);
+            padding: 20px;
+            border-radius: 4px;
+            border-left: 3px solid #87FF00; 
+            border-top: 1px solid rgba(135, 255, 0, 0.05);
+            border-right: 1px solid rgba(135, 255, 0, 0.05);
+            border-bottom: 1px solid rgba(135, 255, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            background-color: rgba(135, 255, 0, 0.08);
+            box-shadow: 0 0 12px rgba(135, 255, 0, 0.2);
+        }
+
+        .card strong {
+            color: #87FF00;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 25px 0;
+        }
+
+        .image-gallery img {
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid rgba(135, 255, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.04);
+            border-color: #87FF00;
+            box-shadow: 0 0 15px rgba(135, 255, 0, 0.4);
+        }
+
+        .links-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .social-link {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: rgba(135, 255, 0, 0.06);
+            color: #87FF00;
+            text-decoration: none;
+            border: 1px solid rgba(135, 255, 0, 0.4);
+            border-radius: 4px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: #87FF00;
+            color: #050a05; 
+            text-shadow: none; 
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(135, 255, 0, 0.4);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: rgba(135, 255, 0, 0.15);
+            margin: 25px 0;
+        }
+
+        footer {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            text-align: center;
+            padding: 30px 0;
+            color: #a3b8a8;
+            opacity: 0.6;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(135, 255, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>NCTPHONE</h1>
+            <p>Neo Culture Technology — Смартфони Нового Покоління</p>
+        </header>
+
+        <nav>
+            <a href="/" class="nav-link active">Головна</a>
+            <a href="/catalog/" class="nav-link">Каталог товарів</a>
+            <a href="/promotions/" class="nav-link">Акції та знижки</a>
+            <a href="/delivery/" class="nav-link">Оплата і доставка</a>
+            <a href="/contacts/" class="nav-link">Контакти</a>
+        </nav>
+
+        <main>
+            
+            <section id="welcome">
+                <h2>Про наш інтернет-магазин</h2>
+                <p>Ласкаво просимо до <strong>NctPhone</strong>! Ми пропонуємо нові модели смартфонів 2026 року з офіційною гарантією від виробника та швидкою доставкою по всій Україні. Наш дизайн та концепція натхненні стилем і шаленою енергією.</p>
+                
+                <p style="text-align: center; margin-top: 25px; color: #87FF00; font-family: 'Orbitron', sans-serif; letter-spacing: 1px;">[ Трейлери та Відеоогляди ]</p>
+                
+                <div class="video-slider">
+                    <div class="video-slide active">
+                        <video src="video1.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <div class="video-slide">
+                        <video src="video2.mp4" loop muted playsinline></video>
+                    </div>
+                    <div class="video-slide">
+                        <video src="video3.mp4" loop muted playsinline></video>
+                    </div>
+                </div>
+            </section>
+
+            <section id="catalog-preview">
+                <h2>Популярні категорії та бренди</h2>
+                <div class="grid-list">
+                    <div class="card"><strong>Apple iPhone</strong><br>Сучасні флагмани iOS</div>
+                    <div class="card"><strong>Samsung Galaxy</strong><br>Передові技術 та яскраві дисплеї</div>
+                    <div class="card"><strong>Google Pixel</strong><br>Чистий Android та топова камера</div>
+                </div>
+            
+                <div class="image-gallery">
+                    <img src="iphone17.png" width="250" alt="Apple iPhone 17">
+                    <img src="flip5.png" width="250" alt="Samsung Galaxy Flip 5">
+                    <img src="pixel.png" width="250" alt="Google Pixel">
+                </div>
+            </section>
+
+            <section id="shop-contacts">
+                <h2>Контакти та підтримка</h2>
+                <p style="margin-bottom: 15px;">Наш офіс та головна точка видачі замовлень:</p>
+                <p style="margin-bottom: 20px;">📍 <strong>Місто:</strong> Київ, вул. Бесарабська площа </p>
+                
+                <p style="margin-bottom: 15px; text-align: center;">Приєднуйтесь до нас у соціальних мережах, чтобы відстежувати акції:</p>
+                <div class="links-container">
+                    <a href="#" target="_blank" class="social-link">Telegram-канал</a>
+                    <a href="#" target="_blank" class="social-link">Instagram</a>
+                    <a href="mailto:support@neophone.com.ua" class="social-link">Email Підтримка</a>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2026 NctPhone Всі права захищені.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.video-slide');
+        let slideInterval;
+
+        function startSlideTimer() {
+            clearInterval(slideInterval);
+            
+            const currentVideo = slides[currentSlide].querySelector('video');
+            
+            if (currentVideo) {
+                currentVideo.play().catch(e => console.log("Автозапуск заблокирован"));
+                slideInterval = setInterval(changeSlide, 5000);
+            }
+        }
+
+        function changeSlide() {
+            const currentVideo = slides[currentSlide].querySelector('video');
+            if (currentVideo) {
+                currentVideo.pause();
+                currentVideo.currentTime = 0;
+            }
+
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+            
+            startSlideTimer();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            startSlideTimer();
+        });
+    </script>
+
+</body>
+</html>
