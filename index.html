@@ -1,11 +1,11 @@
-HTML
 <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Купити smartphones та мобільні телефони в Україні NeoPhone</title>
+    <title>Купити smartphones та мобільні телефони в Украине NeoPhone</title>
     <meta name="description" content="Широкий вибір сучасних смартфонів за вигідними цінами. Офіційна гарантія та швидка доставка.">
+    <meta name="author" content="Sytiuk">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -297,19 +297,28 @@ HTML
                 
                 <div class="video-slider">
                     <div class="video-slide active">
-                        <video src="video1.mp4" autoplay loop muted playsinline></video>
+                        <video autoplay loop muted playsinline preload="auto">
+                            <source src="video1.mp4" type="video/mp4">
+                            Ваш браузер не підтримує відео.
+                        </video>
                     </div>
                     <div class="video-slide">
-                        <video src="video2.mp4" loop muted playsinline></video>
+                        <video loop muted playsinline preload="auto">
+                            <source src="video2.mp4" type="video/mp4">
+                            Ваш браузер не підтримує відео.
+                        </video>
                     </div>
                     <div class="video-slide">
-                        <video src="video3.mp4" loop muted playsinline></video>
+                        <video loop muted playsinline preload="auto">
+                            <source src="video3.mp4" type="video/mp4">
+                            Ваш браузер не підтримує відео.
+                        </video>
                     </div>
                 </div>
             </section>
 
             <section id="catalog-preview">
-                <h2>Популярні категорії та бренди</h2>
+                <h2>Популярні категории та бренди</h2>
                 <div class="grid-list">
                     <div class="card"><strong>Apple iPhone</strong><br>Сучасні флагмани iOS</div>
                     <div class="card"><strong>Samsung Galaxy</strong><br>Передові技術 та яскраві дисплеї</div>
@@ -317,8 +326,8 @@ HTML
                 </div>
             
                 <div class="image-gallery">
-                    <img src="iphone17.png" width="250" alt="Apple iPhone 17">
                     <img src="flip5.png" width="250" alt="Samsung Galaxy Flip 5">
+                    <img src="iphone17.png" width="250" alt="Apple iPhone 17">
                     <img src="pixel.png" width="250" alt="Google Pixel">
                 </div>
             </section>
@@ -339,7 +348,7 @@ HTML
         </main>
 
         <footer>
-            <p>&copy; 2026 NctPhone Всі права захищені.</p>
+            <p>&copy; 2026 NctPhone. Розробка та дизайн: Sytiuk. Всі права захищені.</p>
         </footer>
 
     </div>
